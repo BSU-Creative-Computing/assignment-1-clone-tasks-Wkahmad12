@@ -1,0 +1,30 @@
+.image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.image img {
+    width: 30%; /* Adjust the width as needed */
+    margin-bottom: 20px; /* Adjust the margin as needed */
+}
+footer{
+    text-align: center;
+    background-color: black;
+    color: aliceblue;
+
+}
+@media (max-width: 600px) {
+    header {
+        text-align: center;
+    }
+
+    header svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .image img {
+        width: 100%;
+    }
+}
