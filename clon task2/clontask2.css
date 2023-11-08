@@ -1,17 +1,20 @@
+/* Reset default margin and padding */
 body, ul {
-    margin: 1;
+    margin: 0;
     padding: 0;
 }
 
+/* Styles for the header and navigation bar */
 header {
     background-color: rgb(9, 173, 227);
     color: #fff;
     padding: 10px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space between;
     align-items: center;
 }
 
+/* Styles for the logo */
 .logo a {
     text-decoration: none;
     color: #fff;
@@ -19,9 +22,16 @@ header {
     font-size: 24px;
 }
 
+/* Styles for the navigation menu */
+nav {
+    background-color: rgb(9, 173, 227); /* Set background color here */
+    width: 100%; /* Ensure the background spans the full width */
+}
+
 nav ul {
     list-style-type: none;
     display: flex;
+    align-items: center;
 }
 
 nav li {
@@ -31,15 +41,24 @@ nav li {
 nav a {
     text-decoration: none;
     color: #fff;
-
     font-size: 18px;
+    white-space: nowrap;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #08ccde;
+    transition: background-color 0.3s;
+
+    /* Style changes on hover */
+    &:hover {
+        background-color: #007ba9;
+    }
 }
 
+/* Styles for the search bar */
 .search input[type="text"] {
     border: none;
     padding: 10px;
     border-radius: 5px;
-    
 }
 
 .search button {
@@ -49,19 +68,24 @@ nav a {
     padding: 10px 20px;
     border-radius: 5px;
 }
+
+/* Reset default margin and padding for images */
 body, img {
     margin: 0;
     padding: 0;
 }
 
+/* Styles for the image container and items */
 .image-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
 }
 
 .big-image {
     flex: 1;
     padding: 10px;
+    min-width: 50%;
 }
 
 .big-image img {
@@ -70,8 +94,6 @@ body, img {
     display: block;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     border: 1px solid #c6b5b5;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-
 }
 
 .small-images {
@@ -79,6 +101,7 @@ body, img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 50%;
 }
 
 .image-row {
@@ -92,7 +115,6 @@ body, img {
     border: 1px solid #979393;
     padding: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    
 }
 
 .image-item img {
@@ -110,57 +132,86 @@ body, img {
     display: block;
     margin: 10px auto;
     padding: 5px 10px;
-    background-color:rgb(9, 173, 227);
+    background-color: rgb(9, 173, 227);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
 @media screen and (max-width: 768px) {
     .image-container {
         flex-direction: column;
-        min-width: 100%; /* Minimum width of 100 */
+        min-width: 100%;
     }
 
-    .big-image {
-        flex: none;
-    }
-
-    .big-image img {
-        max-width: 100%;
-        height: auto;
-        box-shadow: none;
-        border: none;
-    }
-
+    .big-image,
     .small-images {
         flex: none;
-    }
-
-    .image-row {
-        flex-direction: column;
-        margin-bottom: 20px;
+        min-width: 100%;
     }
 
     .image-item {
-        flex: none;
-        margin: 0;
-    }
-
-    .image-info {
-        margin-top: 10px;
-    }
-
-    .more-info {
-        margin: 10px 0;
+        min-width: 100%;
     }
 }
 
+/* Media query for screens with width up to 480px */
+@media screen and (max-width: 480px) {
+    .small-images .image-row {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .small-images .image-item {
+        flex: 1;
+        margin: 0;
+    }
+}
 
+/* Media queries for adjusting the layout based on screen size */
+@media screen and (min-width: 800px) {
+    .big-image {
+        min-width: 33.33%;
+    }
+    .small-images {
+        min-width: 66.66%;
+    }
+}
 
+@media screen and (min-width: 1024px) {
+    .big-image {
+        min-width: 60%;
+    }
+    .small-images {
+        min-width: 40%;
+    }
+}
+/* Existing styles above */
 
+@media screen and (max-width: 768px) {
+    .image-container {
+        flex-direction: column;
+        min-width: 100%;
+    }
 
+    .big-image,
+    .small-images {
+        flex: none;
+        min-width: 100%;
+    }
 
+    .image-item {
+        min-width: 100%;
+    }
 
+    /* Add this part to make the navigation menu vertical */
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-
+    nav li {
+        margin-left: 0; /* Remove the left margin */
+        margin-top: 10px; /* Add top margin for vertical spacing */
+    }
+}
